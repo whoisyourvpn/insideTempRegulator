@@ -9,18 +9,19 @@ int main() {
     int outsideTemp;
     int insideTemp;
 
-    // Asking the user to input the outside and inside temperatures
+    // Asking the user to input the outside temperature
     cout << "Enter the current outside temperature: ";
     cin >> outsideTemp;
-
-    cout << "Enter the current inside temperature: ";
-    cin >> insideTemp;
 
     // Check if it's warm outside
     if (outsideTemp > 50) {
         cout << "It's warm outside, no need for heat." << endl;
         return 0; // Exit the program
     }
+
+    // Asking the user to input the inside temperature
+    cout << "Enter the current inside temperature: ";
+    cin >> insideTemp;
     
     while (outsideTemp <= 50) {
         adjustHeat(insideTemp);
