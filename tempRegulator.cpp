@@ -31,14 +31,16 @@ int main() {
             cout << "Desired inside temperature reached." << endl;
         }
 
-        // Optional: Prompt for user action to continue or exit
+        // Prompt for user action to continue or exit
         cout << "Press Enter to continue monitoring temperatures, or type 'exit' to quit: ";
         string userInput;
         getline(cin >> ws, userInput); // Read the whole line, including whitespaces
 
+        // Exit the program if user types 'exit'
         if (userInput == "exit") {
             break; // Exit the infinite loop
         }
+        // Otherwise, continue with the next iteration of the loop
     }
 
     return 0;
