@@ -6,19 +6,26 @@ using namespace std;
 void adjustHeat(int& insideTemp);
 
 int main() {
-    int outsideTemp = 50;
-    int insideTemp = 50;
+    int outsideTemp;
+    int insideTemp;
+
+    // Asking the user to input the outside and inside temperatures
+    cout << "Enter the current outside temperature: ";
+    cin >> outsideTemp;
+
+    cout << "Enter the current inside temperature: ";
+    cin >> insideTemp;
     
     while (outsideTemp <= 50) {
         adjustHeat(insideTemp);
 
-        // Breaking out of the loop if the inside temperature reaches a certain level
+        // Breaking out of the loop if the inside temperature reaches 75
         if (insideTemp >= 75) {
             cout << "Inside temperature is now quite high. Stopping the loop." << endl;
             break;
         }
 
-        // Simulate changes in outside temperature (optional)
+        // Incrementing outsideTemp to simulate a change and prevent an infinite loop
         outsideTemp++;
     }
 
