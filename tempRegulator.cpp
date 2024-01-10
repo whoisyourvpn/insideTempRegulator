@@ -8,28 +8,38 @@ const int DESIRED_INSIDE_TEMP = 72; // Desired inside temperature
 void adjustHeat(int& insideTemp);
 
 int main() {
-    int outsideTemp;
-    int insideTemp;
+    while (true) { // Infinite loop for continuous operation
+        int outsideTemp;
+        int insideTemp;
 
-    // Asking the user to input the outside temperature
-    cout << "Enter the current outside temperature: ";
-    cin >> outsideTemp;
+        // Asking the user to input the outside temperature
+        cout << "Enter the current outside temperature: ";
+        cin >> outsideTemp;
 
-    // Check if it's warm outside
-    if (outsideTemp > 50) {
-        cout << "It's warm outside, no need for heat." << endl;
-        return 0; // Exit the program
+        // Check if it's warm outside
+        if (outsideTemp > 50) {
+            cout << "It's warm outside, no need for heat." << endl;
+        } else {
+            // Asking the user to input the inside temperature
+            cout << "Enter the current inside temperature: ";
+            cin >> insideTemp;
+
+            while (insideTemp < DESIRED_INSIDE_TEMP) {
+                adjustHeat(insideTemp);
+            }
+
+            cout << "Desired inside temperature reached." << endl;
+        }
+
+        // Optional: Prompt for user action to continue or exit
+        cout << "Press Enter to continue monitoring temperatures, or type 'exit' to quit: ";
+        string userInput;
+        getline(cin >> ws, userInput); // Read the whole line, including whitespaces
+
+        if (userInput == "exit") {
+            break; // Exit the infinite loop
+        }
     }
-
-    // Asking the user to input the inside temperature
-    cout << "Enter the current inside temperature: ";
-    cin >> insideTemp;
-    
-    while (insideTemp < DESIRED_INSIDE_TEMP) {
-        adjustHeat(insideTemp);
-    }
-
-    cout << "Desired inside temperature reached." << endl;
 
     return 0;
 }
