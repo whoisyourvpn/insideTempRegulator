@@ -38,6 +38,7 @@ int main() {
 
         // Exit the program if user types 'exit'
         if (userInput == "exit") {
+            cout << "Exited program successfully. Goodbye!" << endl;
             break; // Exit the infinite loop
         }
         // Otherwise, continue with the next iteration of the loop
@@ -50,4 +51,5 @@ int main() {
 void adjustHeat(int& insideTemp) {
     cout << "Turning on the heat... ";
     insideTemp += 5; // Increase inside temperature by 5 degrees
-    cout << "Heat increased. New inside temperature:
+    cout << "Heat increased. New inside temperature: " << insideTemp << " degrees." << endl;
+}
