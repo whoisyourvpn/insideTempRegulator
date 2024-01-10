@@ -51,4 +51,4 @@ void adjustHeat(int& insideTemp) {
     cout << "Turning on the heat... ";
     insideTemp += 5; // Increase inside temperature by 5 degrees
     cout << "Heat increased. New inside temperature: " << insideTemp << " degrees." << endl;
-}
+} // Adding the missing closing brace here
