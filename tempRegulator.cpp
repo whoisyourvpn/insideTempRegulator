@@ -2,6 +2,8 @@
 
 using namespace std;
 
+const int DESIRED_INSIDE_TEMP = 72; // Desired inside temperature
+
 // Function declaration
 void adjustHeat(int& insideTemp);
 
@@ -23,28 +25,18 @@ int main() {
     cout << "Enter the current inside temperature: ";
     cin >> insideTemp;
     
-    while (outsideTemp <= 50) {
+    while (insideTemp < DESIRED_INSIDE_TEMP) {
         adjustHeat(insideTemp);
-
-        // Breaking out of the loop if the inside temperature reaches 75
-        if (insideTemp >= 75) {
-            cout << "Inside temperature is now quite high. Stopping the loop." << endl;
-            break;
-        }
-
-        // Incrementing outsideTemp to simulate a change and prevent an infinite loop
-        outsideTemp++;
     }
+
+    cout << "Desired inside temperature reached." << endl;
 
     return 0;
 }
 
 // Function definition
 void adjustHeat(int& insideTemp) {
-    if (insideTemp <= 70) {
-        cout << "Turning on the heat." << endl;
-        insideTemp++; // Simulating the increase in inside temperature
-    } else {
-        cout << "Inside temperature is comfortable. No need for heat." << endl;
-    }
+    cout << "Turning on the heat... ";
+    insideTemp += 5; // Increase inside temperature by 5 degrees
+    cout << "Heat increased. New inside temperature: " << insideTemp << " degrees." << endl;
 }
