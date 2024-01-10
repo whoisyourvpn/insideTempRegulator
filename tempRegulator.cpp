@@ -15,6 +15,12 @@ int main() {
 
     cout << "Enter the current inside temperature: ";
     cin >> insideTemp;
+
+    // Check if it's warm outside
+    if (outsideTemp > 50) {
+        cout << "It's warm outside, no need for heat." << endl;
+        return 0; // Exit the program
+    }
     
     while (outsideTemp <= 50) {
         adjustHeat(insideTemp);
