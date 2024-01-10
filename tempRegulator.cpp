@@ -1,5 +1,4 @@
 #include <iostream>
-#include <limits> // Include for std::numeric_limits
 
 using namespace std;
 
@@ -32,13 +31,10 @@ int main() {
             cout << "Desired inside temperature reached." << endl;
         }
 
-        // Clear the input buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
         // Prompt for user action to continue or exit
         cout << "Press Enter to continue monitoring temperatures, or type 'exit' to quit: ";
         string userInput;
-        getline(cin, userInput); // Read the whole line
+        getline(cin >> ws, userInput); // Using ws to discard leading whitespace
 
         // Exit the program if user types 'exit'
         if (userInput == "exit") {
@@ -54,5 +50,4 @@ int main() {
 void adjustHeat(int& insideTemp) {
     cout << "Turning on the heat... ";
     insideTemp += 5; // Increase inside temperature by 5 degrees
-    cout << "Heat increased. New inside temperature: " << insideTemp << " degrees." << endl;
-}
+    cout << "Heat increased. New inside temperature:
